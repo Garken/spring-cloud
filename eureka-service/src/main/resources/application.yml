@@ -1,0 +1,28 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: eureka-service
+
+# 单例模式
+#eureka:
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    server:
+#      waitTimeInMsWhenSyncEmpty: 0
+
+# 集群模式
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+    service-url:
+      defaultZone: http://localhost:8101/eureka,http://localhost:8102/eureka
+
+  server:
+    enable-self-preservation: false # only disable on development
+    eviction-interval-timer-in-ms: 2000
